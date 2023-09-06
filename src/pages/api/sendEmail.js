@@ -1,5 +1,4 @@
-
-import Nylas from 'nylas';
+import Nylas from "nylas";
 
 export default async function handler(req, res) {
   try {
@@ -13,17 +12,17 @@ export default async function handler(req, res) {
     const { email, phone, comment } = req.body;
 
     const draft = nylas.drafts.build({
-      subject: 'Contact Us Submission',
+      subject: "Contact Us Submission",
       body: `Email: ${email}\n
             Phone: ${phone}
             Comment: ${comment}`,
-      to: [{ email: 'bmaggiano@gmail.com' }],
+      to: [{ email: "bmaggiano@gmail.com" }],
     });
 
     await draft.send();
 
-    res.status(200).json({ message: 'Email sent successfully' });
+    res.status(200).json({ message: "Email sent successfully" });
   } catch (error) {
-    res.status(500).json({ error: 'Error sending email' });
+    res.status(500).json({ error: "Error sending email" });
   }
 }

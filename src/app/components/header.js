@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
 export default function Header() {
   return (
     <>
-            <div className="relative isolate overflow-hidden bg-gradient-to-b from-indigo-100/20 pt-14">
+      <div className="relative isolate overflow-hidden bg-gradient-to-b from-indigo-100/20 pt-14">
         <div
           className="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:-mr-80 lg:-mr-96"
           aria-hidden="true"
@@ -15,10 +15,16 @@ export default function Header() {
             </h1>
             <div className="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
               <p className="text-lg leading-8 text-gray-600">
-                <strong>We are the Mint.com of healthcare. </strong>That means when you sign up with us, you get access to all sorts
-                of data that only your insurer used to have. Want to find out if there are cheaper healthcare plans in your area?
-                <strong> We have that.</strong> Want access to data from all your doctor visits and find out how much you paid? <strong> We have that. </strong>
-                Want to know if the medications you&apos;re taking are dangerous when taken together? <strong> We have that and much, much, more. </strong>
+                <strong>We are the Mint.com of healthcare. </strong>That means
+                when you sign up with us, you get access to all sorts of data
+                that only your insurer used to have. Want to find out if there
+                are cheaper healthcare plans in your area?
+                <strong> We have that.</strong> Want access to data from all
+                your doctor visits and find out how much you paid?{" "}
+                <strong> We have that. </strong>
+                Want to know if the medications you&apos;re taking are dangerous
+                when taken together?{" "}
+                <strong> We have that and much, much, more. </strong>
               </p>
               <div className="mt-10 flex items-center gap-x-6">
                 <a
@@ -27,11 +33,15 @@ export default function Header() {
                 >
                   Get started
                 </a>
-                <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                <a
+                  href="#"
+                  className="text-sm font-semibold leading-6 text-gray-900"
+                >
                   Learn more <span aria-hidden="true">→</span>
                 </a>
               </div>
             </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="https://images.unsplash.com/photo-1567532900872-f4e906cbf06a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1280&q=80"
               alt=""
@@ -42,7 +52,5 @@ export default function Header() {
         <div className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-white sm:h-32" />
       </div>
     </>
-  )
+  );
 }
-
-
