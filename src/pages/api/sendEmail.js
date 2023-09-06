@@ -10,11 +10,13 @@ export default async function handler(req, res) {
 
     const nylas = Nylas.with(process.env.ACCESS_TOKEN);
 
-    const { email, comment } = req.body;
+    const { email, phone, comment } = req.body;
 
     const draft = nylas.drafts.build({
       subject: 'Contact Us Submission',
-      body: `Email: ${email}\nComment: ${comment}`,
+      body: `Email: ${email}\n
+            Phone: ${phone}
+            Comment: ${comment}`,
       to: [{ email: 'bmaggiano@gmail.com' }],
     });
 

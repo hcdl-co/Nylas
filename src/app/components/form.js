@@ -5,6 +5,7 @@ export default function Form() {
 
     const [formData, setFormData] = useState({
         email: '',
+        phone: '',
         comment: '',
       });
 
@@ -12,7 +13,6 @@ export default function Form() {
       const handleSubmit = async (e) => {
           e.preventDefault();
           
-          console.log(formData)
         try {
           const response = await fetch('/api/sendEmail', {
             method: 'POST',
@@ -57,10 +57,29 @@ export default function Form() {
                   }
                   autoComplete="email"
                   required
+                  placeholder="johnsmith@gmail.com"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
+
+            <div>
+      <label htmlFor="phone-number" className="block text-sm font-medium leading-6 text-gray-900">
+        Phone Number
+      </label>
+      <div className="mt-2 rounded-md shadow-sm">
+        <input
+          type="text"
+          name="phone-number"
+          id="phone-number"
+          onChange={(e) =>
+            setFormData({ ...formData, phone: e.target.value })
+          }
+          className="block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          placeholder="(555) 987-6543"
+        />
+      </div>
+    </div>
 
             <div>
       <label htmlFor="comment" className="block text-sm font-medium leading-6 text-gray-900">
@@ -74,6 +93,7 @@ export default function Form() {
             setFormData({ ...formData, comment: e.target.value })
           }
           id="comment"
+          placeholder="I'm looking to change my healthcare plan"
           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           defaultValue={''}
         />
