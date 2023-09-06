@@ -5,19 +5,23 @@ import toast, { Toaster } from 'react-hot-toast';
 export default function Form() {
     
     const notify = () => toast('✅ Email Sent Successfully')
-    const sending = () => toast('⏳ We are sending your email')
+    const emailError = () => toast('❌ Oops, something went wrong with your email')
+    const sending = () => toast('⏳ We are sending your email...')
 
     const [formData, setFormData] = useState({
         email: '',
         phone: '',
         comment: '',
       });
+    const [isLoading, setIsLoading] = useState(false)
 
       
       const handleSubmit = async (e) => {
           e.preventDefault();
           sending()
+          console.log(formData)
         try {
+            setIsLoading(true)
           const response = await fetch('/api/sendEmail', {
             method: 'POST',
             body: JSON.stringify(formData),
@@ -25,15 +29,21 @@ export default function Form() {
               'Content-Type': 'application/json',
             },
           });
-    
+          
           if (response.ok) {
-            console.log('Email sent successfully');
-            notify()
-          } else {
-            console.error('Failed to send email');
-          }
+              notify();
+            } else {
+                emailError();
+            }
         } catch (error) {
-          console.error('Error sending email', error);
+            console.error('Error sending email', error);
+        } finally {
+            setFormData({
+                email: '',
+                phone: '',
+                comment: '',
+              });
+            setIsLoading(false)
         }
       };
 
@@ -57,6 +67,7 @@ export default function Form() {
                 <input
                   id="email"
                   name="email"
+                  value={formData.email}
                   type="email"
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
@@ -78,6 +89,7 @@ export default function Form() {
           type="text"
           name="phone-number"
           id="phone-number"
+          value={formData.phone}
           onChange={(e) =>
             setFormData({ ...formData, phone: e.target.value })
           }
@@ -95,13 +107,13 @@ export default function Form() {
         <textarea
           rows={4}
           name="comment"
+          value={formData.comment}
           onChange={(e) =>
             setFormData({ ...formData, comment: e.target.value })
           }
           id="comment"
           placeholder="I'm looking to change my healthcare plan"
           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-          defaultValue={''}
         />
       </div>
     </div>
@@ -109,9 +121,10 @@ export default function Form() {
             <div>
               <button
                 type="submit"
+                disabled={isLoading}
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Submit
+                {isLoading ? 'Submitting...' : 'Submit'}
               </button>
             </div>
           </form>
