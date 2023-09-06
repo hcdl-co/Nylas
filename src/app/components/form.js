@@ -1,7 +1,11 @@
 "use client"
 import { useState } from "react";
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Form() {
+    
+    const notify = () => toast('✅ Email Sent Successfully')
+    const sending = () => toast('⏳ We are sending your email')
 
     const [formData, setFormData] = useState({
         email: '',
@@ -12,7 +16,7 @@ export default function Form() {
       
       const handleSubmit = async (e) => {
           e.preventDefault();
-          
+          sending()
         try {
           const response = await fetch('/api/sendEmail', {
             method: 'POST',
@@ -24,6 +28,7 @@ export default function Form() {
     
           if (response.ok) {
             console.log('Email sent successfully');
+            notify()
           } else {
             console.error('Failed to send email');
           }
@@ -34,6 +39,7 @@ export default function Form() {
 
   return (
     <>
+    <Toaster />
       <div className="mb-12 flex min-h-full flex-1 flex-col justify-start px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
