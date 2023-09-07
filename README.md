@@ -2,6 +2,8 @@
 
 ## Link to deployed app
 
+https://nylas-gamma.vercel.app/
+
 ## Screenshot
 
 ![Standard modern homepage with contact us section](./public/screenshot.png)
