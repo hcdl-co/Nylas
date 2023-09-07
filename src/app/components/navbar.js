@@ -17,7 +17,7 @@ export default function Navbar() {
 
   return (
     <div>
-      <header className="absolute inset-x-0 top-0 z-50">
+      <header className="bg-white shadow-lg shadow-indigo-600/10 ring-1 ring-indigo-50 absolute inset-x-0 top-0 z-50">
         <nav
           className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
           aria-label="Global"
