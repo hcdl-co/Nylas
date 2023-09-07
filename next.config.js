@@ -1,10 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    exportPathMap: async function () {
-        return {
-          '/': { page: '/' },
-          // Add more pages as needed
-        };
+    async generateStaticParams() {
+        // Return an array of paths you want to statically generate
+        return ['/']; // Add more paths as needed
       },
 }
 
