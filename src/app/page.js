@@ -13,7 +13,9 @@ export default function Home() {
     <div>
       <Navbar />
       <Header />
+      <div className='bg-indigo-50/50 py-10'>
       <Form />
+      </div>
       <Footer />
     </div>
     </>

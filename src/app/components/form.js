@@ -52,7 +52,7 @@ export default function Form() {
     <>
       <Toaster />
       <div className="flex min-h-full justify-center flex-col px-6 py-12 lg:px-8">
-        <div className="bg-indigo-400/5 w-full mx-auto lg:w-6/12 border-gray-300 shadow-lg shadow-indigo-600/10 border rounded-lg">
+        <div className="bg-white w-full mx-auto lg:w-6/12 border-gray-300 shadow-lg shadow-indigo-600/10 border rounded-lg">
 
         <div className= "sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
