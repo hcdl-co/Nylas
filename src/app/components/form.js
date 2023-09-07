@@ -49,20 +49,22 @@ export default function Form() {
   return (
     <>
       <Toaster />
-      <div className="mb-12 flex min-h-full flex-1 flex-col justify-start px-6 py-12 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+      <div className="flex min-h-full justify-center flex-col px-6 py-12 lg:px-8">
+        <div className="bg-gray-50 border-gray border rounded-lg">
+
+        <div className= "sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Contact us
           </h2>
         </div>
 
-        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <div className="p-10 my-6 mx-auto sm:w-6/12">
           <form
             className="space-y-6"
             action=""
             onSubmit={handleSubmit}
             method="POST"
-          >
+            >
             <div>
               <label
                 htmlFor="email"
@@ -113,7 +115,7 @@ export default function Form() {
               <label
                 htmlFor="comment"
                 className="block text-sm font-medium leading-6 text-gray-900"
-              >
+                >
                 Add your comment
               </label>
               <div className="mt-2">
@@ -147,10 +149,11 @@ export default function Form() {
             <a
               href="#"
               className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
-            >
+              >
               Sign up for free today!
             </a>
           </p>
+                </div>
         </div>
       </div>
     </>
