@@ -22,7 +22,7 @@ export default function Form() {
     console.log(formData);
     try {
       setIsLoading(true);
-      const response = await fetch("/api/sendEmail", {
+      const response = await fetch("https://hcdl-co.github.io/api/sendEmail", {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {
