@@ -10,6 +10,7 @@ export default function Form() {
 
   const [formData, setFormData] = useState({
     email: "",
+    name: "",
     phone: "",
     comment: "",
   });
@@ -39,6 +40,7 @@ export default function Form() {
     } finally {
       setFormData({
         email: "",
+        name: "",
         phone: "",
         comment: "",
       });
@@ -50,15 +52,15 @@ export default function Form() {
     <>
       <Toaster />
       <div className="flex min-h-full justify-center flex-col px-6 py-12 lg:px-8">
-        <div className="bg-gray-50 border-gray border rounded-lg">
+        <div className="bg-indigo-400/5 w-full mx-auto lg:w-6/12 border-gray-300 shadow-lg shadow-indigo-600/10 border rounded-lg">
 
         <div className= "sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Contact us
+            Contact us 💬
           </h2>
         </div>
 
-        <div className="p-10 my-6 mx-auto sm:w-6/12">
+        <div className="mt-10 mb-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
           <form
             className="space-y-6"
             action=""
@@ -68,7 +70,7 @@ export default function Form() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-md font-semibold leading-6 text-gray-900"
               >
                 Email address
               </label>
@@ -89,11 +91,35 @@ export default function Form() {
               </div>
             </div>
 
-            <div>
+            <div className="flex flex-col justify-between flex-1 xl:flex-row">
+              <div className="flex-col">
+
+              <label
+                htmlFor="name"
+                className="block text-md font-semibold leading-6 text-gray-900"
+                >
+                Full Name
+              </label>
+              <div className="mt-2 rounded-md shadow-sm">
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  placeholder="John Smith"
+                  />
+              </div>
+                  </div>
+                  <div className="flex-col">
+
               <label
                 htmlFor="phone-number"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
+                className="block text-md font-semibold leading-6 text-gray-900"
+                >
                 Phone Number
               </label>
               <div className="mt-2 rounded-md shadow-sm">
@@ -107,16 +133,17 @@ export default function Form() {
                   }
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   placeholder="(555) 987-6543"
-                />
+                  />
+                  </div>
               </div>
             </div>
 
             <div>
               <label
                 htmlFor="comment"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-md font-semibold leading-6 text-gray-900"
                 >
-                Add your comment
+                Add your question
               </label>
               <div className="mt-2">
                 <textarea
